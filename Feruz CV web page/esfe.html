@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://kit.fontawesome.com/a024b6bda8.js" crossorigin="anonymous"></script>
+    <style>
+:root {
+    --primary-color: #327ed4; /* main accents */
+    --secondary-color: #161B22; /* Background color (blue) */
+    --text-color: #969ba1; /* Light text color (off-white) */
+    --primary-text-color: #F0F6FC;
+    --link-hover-color: #0F172A; /* Link hover color (light blue) */
+    --border-color: #173b65; /* Border color (same as primary) */
+    --backround-color: #0a151d; /* Dark background color */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.body {
+    background-color: var(--backround-color);
+    color: var(--text-color);
+}
+.container {
+    width: 100%;
+    max-width: 1200px;     
+    margin: 0 auto;         
+    padding: 0 10px;        
+    box-sizing: border-box; 
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    flex-wrap: wrap;
+}
+
+.logo1 {
+    width: 25%;
+}
+
+.logo {
+    width: 15%;
+}
+
+.navbar ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+.navbar ul li a{
+    color: var(--primary-text-color);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+}
+
+.navbar ul li a::after{
+    content: '';
+    width: 0%;
+    height: 3px;
+    background: var(--primary-color);
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.3s
+}
+
+.navbar ul li a:hover::after{
+    width: 100%;
+}
+
+.navbar .fa-solid{
+    display: none;
+    color: var(--primary-text-color)
+}
+
+@media only screen and (max-width: 900px){
+    .logo1{
+        width: 40%;
+    }
+    .logo{
+        width: 25%;
+        
+    }
+    .navbar .fa-solid{
+        display: block;
+        font-size: 25px;
+    }
+    .navbar ul{
+        background: var(--border-color);
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100%;
+        padding-top: 60px;
+        z-index: 2;
+        transition: right 0.5s;
+    }
+    .navbar ul li{
+        display: block;
+        margin: 23px;
+    }
+    .navbar ul li a{
+        color: var(--primary-text-color);
+        font-size: 15px;
+    }
+    .navbar ul .fa-solid{
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+        color: var(--primary-text-color);
+    }
+}
+    </style>
+</head>
+<body class="body">
+<div class="container">
+   <nav class="navbar">
+        <img src="images/DMU_Pharmacy.png" class="logo1">
+        <img src="images/logo.webp" class="logo">
+        <ul id="sidemenu">
+            <li><a href="#header">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <i class="fa-solid fa-x" onclick="closemenu()"></i>
+        </ul>
+        <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+    </nav>
+</div> 
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+</script>
+</body>
+</html>
